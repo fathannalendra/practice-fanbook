@@ -57,7 +57,30 @@
             max-width: 500px;
         }
     </style>
+    <script>
+        function hey(){
+            let nickname = $('#nickname').val();
+            let fanmsg = $('#fanMessage').val();
 
+            if (nickname === "" || fanmsg === "" ){
+                alert ('Insert any value!');
+            } else {
+                let temp_html = `<div class="row mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>${fanmsg}</p>
+                            <footer class="blockquote-footer">${nickname}</footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>`;
+
+                alert ('Thank you '+ nickname + ' for your message');
+                $('#colmsg').append(temp_html);
+            }
+        }
+    </script>
     
 </head>
 
@@ -76,13 +99,13 @@
             <textarea class="form-control" placeholder="Fan Message" id="fanMessage"></textarea>
             <label for="floatingTextarea">Fan Message</label>
         </div>
-
-        <button type="button" class="btn btn-dark">Leave a fan message</button>
+        
+        <button type="button" onclick="hey()" class="btn btn-dark" >Leave a fan message</button>
 
     </div>
 
     <div class="mycards">
-        <div class="col">
+        <div class="col" id="colmsg">
             <div class="row mb-3">
                 <div class="card">
                     <div class="card-body">
